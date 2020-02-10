@@ -34,7 +34,7 @@
 
   <packaging>jar</packaging>
 
-  <name>Wanna Go Framework - Audit Server </name>
+  <name>Wanna Go Framework - Audit Server</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
