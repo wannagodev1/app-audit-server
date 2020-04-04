@@ -29,11 +29,12 @@ jobs:
       run: docker build . --file Dockerfile --tag image
 
     - name: Log into registry
-      run: echo "${{ secrets.gitub_token }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      #run: echo "${{ secrets.gitub_token }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      run: echo "${{ secrets.dockerhub_password }}" | docker login --username wannagodev1  --password-stdin
 
     - name: Push image
       run: |
-        IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+        IMAGE_ID=wannagoframework/$IMAGE_NAME
 
         # Change all uppercase to lowercase
         IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
