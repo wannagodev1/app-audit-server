@@ -1,6 +1,9 @@
 name: Java CI
 
-on: [push]
+on:
+  push:
+  repository_dispatch:
+    types: [shared-commons-build]
 
 env:
   IMAGE_NAME: app-audit-server
@@ -25,14 +28,13 @@ jobs:
     - name: Build with Maven
       run: mvn -Dmaven.test.skip -s .settings.xml -Dmaven.javadoc.skip -Dossrh_username=${{secrets.ossrh_username}} -Dossrh_password=${{secrets.ossrh_password}} --file pom.xml deploy
 
-    - name: Build image
+    - name: Build Docker Image
       run: docker build . --file Dockerfile --tag image
 
-    - name: Log into registry
-      #run: echo "${{ secrets.gitub_token }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+    - name: Log into Docker Hub Registry
       run: echo "${{ secrets.dockerhub_password }}" | docker login --username wannagodev1  --password-stdin
 
-    - name: Push image
+    - name: Push image to Docker Hub Registry
       run: |
         IMAGE_ID=wannagoframework/$IMAGE_NAME
 
