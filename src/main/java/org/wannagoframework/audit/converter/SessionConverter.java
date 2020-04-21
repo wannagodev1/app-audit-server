@@ -21,7 +21,6 @@ package org.wannagoframework.audit.converter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.wannagoframework.commons.utils.OrikaBeanMapper;
-import org.wannagoframework.dto.domain.audit.ChangeLog;
 import org.wannagoframework.dto.domain.audit.Session;
 
 /**
@@ -42,8 +41,5 @@ public class SessionConverter {
   public void utilsConverters() {
     orikaBeanMapper.addMapper(org.wannagoframework.audit.domain.Session.class, Session.class);
     orikaBeanMapper.addMapper(Session.class, org.wannagoframework.audit.domain.Session.class);
-
-    orikaBeanMapper.addMapper(org.wannagoframework.audit.domain.ChangeLog.class, ChangeLog.class);
-    orikaBeanMapper.addMapper(ChangeLog.class, org.wannagoframework.audit.domain.ChangeLog.class);
   }
 }
