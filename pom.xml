@@ -58,7 +58,7 @@
 
     <javamelody.version>1.82.0</javamelody.version>
     <mongobee.version>0.13</mongobee.version>
-    <commons-io.version>2.6</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
 
     <logstash-gelf.version>1.13.0</logstash-gelf.version>
   </properties>
